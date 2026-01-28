@@ -1,15 +1,15 @@
 {
-  "name": "@zencoderai/slack-mcp-server",
-  "version": "0.0.0-dev",
-  "description": "MCP server for interacting with Slack",
+  "name": "@roywu01/slack-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for interacting with Slack (forked from @zencoderai/slack-mcp-server)",
   "license": "MIT",
-  "author": "Zencoder AI (https://zencoder.ai)",
-  "homepage": "https://zencoder.ai",
+  "author": "Roy Wu",
+  "homepage": "https://github.com/roywu01/slack-mcp-server",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zencoderai/slack-mcp-server"
+    "url": "https://github.com/roywu01/slack-mcp-server"
   },
-  "bugs": "https://github.com/zencoderai/slack-mcp-server/issues",
+  "bugs": "https://github.com/roywu01/slack-mcp-server/issues",
   "type": "module",
   "bin": {
     "slack-mcp": "dist/index.js"

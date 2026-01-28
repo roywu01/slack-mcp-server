@@ -202,7 +202,18 @@ export class SlackClient {
       headers: this.botHeaders,
     });
 
-    return response.json();
+    const data = await response.json();
+
+    // Filter to only return id, name, and deleted fields
+    if (data.ok && data.members) {
+      data.members = data.members.map((member: any) => ({
+        id: member.id,
+        name: member.name,
+        deleted: member.deleted,
+      }));
+    }
+
+    return data;
   }
 
   async getUserProfile(user_id: string): Promise<any> {
