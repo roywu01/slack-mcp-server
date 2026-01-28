@@ -204,13 +204,14 @@ export class SlackClient {
 
     const data = await response.json();
 
-    // Filter to only return id, name, and deleted fields
+    // Filter to only return active users (deleted: false) with id and name fields only
     if (data.ok && data.members) {
-      data.members = data.members.map((member: any) => ({
-        id: member.id,
-        name: member.name,
-        deleted: member.deleted,
-      }));
+      data.members = data.members
+        .filter((member: any) => !member.deleted)
+        .map((member: any) => ({
+          id: member.id,
+          name: member.name,
+        }));
     }
 
     return data;
@@ -234,7 +235,7 @@ export class SlackClient {
 export function createSlackServer(slackClient: SlackClient): McpServer {
   const server = new McpServer({
     name: "Slack MCP Server",
-    version: "1.0.0",
+    version: "1.0.1",
   });
 
   // Register all Slack tools using the modern API
@@ -521,7 +522,7 @@ async function runHttpServer(slackClient: SlackClient, port: number = 3000, auth
       status: 'healthy',
       timestamp: new Date().toISOString(),
       service: 'Slack MCP Server',
-      version: '1.0.0'
+      version: '1.0.1'
     });
   });
 

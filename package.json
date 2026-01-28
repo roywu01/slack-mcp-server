@@ -1,6 +1,6 @@
 {
   "name": "@roywu01/slack-mcp-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server for interacting with Slack (forked from @zencoderai/slack-mcp-server)",
   "license": "MIT",
   "author": "Roy Wu",
